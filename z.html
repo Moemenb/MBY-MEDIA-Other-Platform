@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Other Platform Of MBY MEDIA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      background: #222;
+      flex-direction: column; /* Adjusting flex direction to stack elements vertically */
+      position: relative; /* Adding relative positioning to the body */
+    }
+
+    img.logo {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%; /* Making the image circular */
+      overflow: hidden; /* Ensuring the circular shape */
+      position: relative; /* Positioning the logo */
+      top: 110px; /* Adjusting the top position */
+      left: calc(50% - 50px); /* Centering horizontally */
+      z-index: 3;
+    }
+    
+    .container {
+      position: relative;
+      width: 480px;
+      height: 360px;
+    }
+
+    .box {
+      --border-width: -6px;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .box::before,
+    .box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background: repeating-conic-gradient(from var(--a),
+          #0f0,
+          #ff0,
+          #0ff,
+          #f0f,
+          #0ff
+      );
+      animation: rotate-gradient 4s infinite linear;
+    }
+    
+    .box::after {
+      filter: blur(48px);
+      opacity: 0.75;
+    }
+    
+    .box span {
+      position: absolute;
+      inset: 4.8px;
+      background: #000000;
+      border-radius: 12px;
+      z-index: 1;
+    }
+    
+    @property --a {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 0deg;
+    }
+    
+    :root {
+      --a: 0deg;
+    }
+    
+    @keyframes rotate-gradient {
+      to {
+          --a: 360deg;
+      }
+    }
+    
+    .box .box {
+      position: absolute;
+      inset: 0 -60px;
+      top: 90px;
+      height: 180px;
+      width: 600px;
+      animation: rotating 4s infinite linear;
+      z-index: -1; /* Ensure the border is behind other content */
+    }
+
+    .button-container {
+      display: flex; /* Change display to flex */
+      flex-direction: column; /* Stack button pairs vertically */
+      position: absolute;
+      top: 75%; /* Adjusting the top position */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2; /* Ensure the button container is above the border */
+    }
+
+    .button-pair {
+      display: flex; /* Display button pairs in a row */
+      justify-content: space-between; /* Equal space between buttons */
+      margin-bottom: 10px; /* Add some space between button pairs */
+    }
+
+    .button {
+      background-color: #01f209;
+      border: none;
+      color: rgb(130, 7, 225);
+      padding: 15px 20px; /* Adjusting padding for buttons */
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition-duration: 0.4s;
+      width: 150px; /* Fixed width for all buttons */
+    }
+
+    .button:hover {
+      background-color: #0ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" height="100px" width="100px" class="logo">
+    <div class="box"> <span></span>
+      <div class="box"> <span></span></div>
+    </div>
+  </div>
+  <div class="button-container">
+    <div class="button-pair">
+      <a href="https://www.instagram.com/mby_media/"><button class="button">Instagram </button></a>
+      <span style="width: 20px;"></span> <!-- Add a spacer with width 20px -->
+      <a href="https://www.tiktok.com/@mby.media?is_from_webapp=1&sender_device=pc"><button class="button">Tik Tok </button></a>
+    </div>
+    <div class="button-pair">
+      <a href="https://www.linkedin.com/feed/"><button class="button">Linkdin </button></a>
+      <span style="width: 20px;"></span> <!-- Add a spacer with width 20px -->
+      <a href="https://www.twitter.com/MBY_MEDIA"><button class="button"> Twitter </button></a>
+    </div>
+  </div>
+</body>
+</html>
